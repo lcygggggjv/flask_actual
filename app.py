@@ -1,7 +1,7 @@
 
 from flask import Flask
 import config
-from exts import db
+from exts import db, mail
 
 from models import UserModel
 # 导入定义蓝图
@@ -18,7 +18,7 @@ app.config.from_object(config)
 
 # 初始化绑定app导入
 db.init_app(app)
-
+mail.init_app(app)
 
 # 映射数据库创建字段
 migrate = Migrate(app, db)
