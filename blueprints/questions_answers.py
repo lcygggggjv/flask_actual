@@ -8,4 +8,4 @@ bp = Blueprint("qa", __name__, url_prefix="/")
 @bp.route('/')
 def index():
 
-    return "回答正确！"
+    return "首页展示！"

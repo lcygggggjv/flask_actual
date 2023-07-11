@@ -25,9 +25,9 @@ function bindEmailCaptchaClick(){
                     var countdown = 5;
 
                     //倒计时之前；不能点击按钮，取消点击事件
-                    $this.off(e:"click");
+                    $this.off("click");
                     // 倒计时结束执行
-                    var timer = setInterval(handler:function(){
+                    var timer = setInterval(function(){
                         $this.text(countdown);
                         countdown -= 1;
                         if (countdown <= 0){
@@ -38,7 +38,7 @@ function bindEmailCaptchaClick(){
                             //重新绑定点击事件
                             bindEmailCaptchaClick();
                         }
-                    }, timeout:1000);
+                    }, 1000);
                     alert("邮箱验证码发送成功！")
                 }else{
                     alert(result['message'])

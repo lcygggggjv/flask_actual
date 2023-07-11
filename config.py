@@ -1,4 +1,7 @@
 
+
+SECRET_KEY = "AYDHEHJEYEWHJR"
+
 # mysql所在主机名
 HOSTNAME = "127.0.0.1"
 
