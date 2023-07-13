@@ -60,6 +60,14 @@ def mail_test():
     return "邮件发送成功！"
 
 
+@bp.route('/logout')
+def logout():
+    # 清除浏览器的session
+    session.clear()
+    # 跳转到首页
+    return redirect('/')
+
+
 # 默认get请求，提交数据用post
 @bp.route('/register', methods=['GET', 'POST'])
 def register():

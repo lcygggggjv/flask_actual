@@ -1,5 +1,5 @@
 import wtforms
-from wtforms.validators import Email, Length, EqualTo   # 表单校验
+from wtforms.validators import Email, Length, EqualTo, InputRequired   # 表单校验 邮箱校验，长度校验，必填校验
 from models import UserModel, EmailCaptchaModel
 from exts import db
 
@@ -55,3 +55,17 @@ class LoginForm(wtforms.Form):
     # 验证错误提示
     email = wtforms.StringField(validators=[Email(message="邮箱格式错误")])
     password = wtforms.StringField(validators=[Length(min=6, max=20, message="密码格式错误！")])
+
+
+class QuestionForm(wtforms.Form):
+
+    # 验证发布的表单的 标题和 内容字段是否正确
+    title = wtforms.StringField(validators=[Length(min=3, max=100, message="标题格式错误！")])
+    content = wtforms.StringField(validators=[Length(min=3, message="内容格式错误！")])
+
+
+class AnswerForm(wtforms.Form):
+
+    content = wtforms.StringField(validators=[Length(min=3, message='内容格式错误')])
+    # 问题id，整型 IntegerField
+    question_id = wtforms.IntegerField(validators=[InputRequired(message="必须要传入问题id")])

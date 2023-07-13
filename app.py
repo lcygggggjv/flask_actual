@@ -5,7 +5,7 @@ from exts import db, mail
 
 from models import UserModel
 # 导入定义蓝图
-from blueprints.questions_answers import bp as qa_bp
+from blueprints.qa import bp as qa_bp
 from blueprints.author import bp as auth_bp
 # 映射数据创建字段等
 from flask_migrate import Migrate
@@ -57,7 +57,7 @@ def my_before_request():
 @app.context_processor
 def my_context_processor():
 
-    # 返回上面获取的g，user对象
+    # 返回上面获取的g，user对象，所有模板都能使用
     return {"user": g.user}
 
 
